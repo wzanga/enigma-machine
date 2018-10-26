@@ -1,0 +1,41 @@
+/---/ stantard library that I may need
+
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <cassert>
+#include <cstring>
+#include <cctype>
+#include <cstdlib>
+using namespace std;
+
+/---/ the "main" function must be take as argument : configuration file names
+1. wiring map of the plugboard
+2. wiring map of the reflector
+3. wiring maps of the rotors
+4. rotors initial starting  positions
+
+Exple : ./enigma plugboards/I.pb reflectors/I.rf rotors/I.rot rotors/II.rot rotors/III.rot rotors/I.pos
+piece of advice include this as a test case inside the Makefile
+
+
+/---/ some error codes
+1. not enough argument entered -> message on the standard ouput stream (cout) & exit with the INSUFICIENT_NUMBER_OF_PARAMETERS code
+
+2. any error opening or reading configuration files --> message on the standard output (cout) & exit with the ERROR_OPENING_CONFIGURATION_FILE code 
+ 
+
+/----GENERAL ABOUT THE PGRM---/
+The program uses loop to read info on the standard input stream
+
+1. space, tab, carriage-return (????) and newline are ignored
+2. encrypt upper-case letter
+3. other characters --> message with cout & exit with INVALID_INPUT_CHARACTER code
+4. when the standard input stream is closed, the pgrm should exit normally (NO_ERROR)
+
+
+/--------PLUGBOARD-----------/
+numbers go from 0 (a) to 25 (z)
+contains an even number of numbers (including 0)
+numbers are read in pairs [a,b]
+
